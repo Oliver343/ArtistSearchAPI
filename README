@@ -1,0 +1,14 @@
+# Artist Search API
+
+This project has been created in order for me to experiment with APIs. This project in particular uses the Spotify web API to retrieve information on an artist entered by the user.
+
+## Spotify Web API
+
+More infomation on the Spotify web API can be found here:
+https://developer.spotify.com/discover/
+
+## Known Issues
+
+* Resolved an issue when the user entered an empty string by providing a default value.
+
+* Errors can still occur when only numbers or symbols are entered into the input.
