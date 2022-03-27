@@ -1,6 +1,11 @@
 # Artist Search API
 
 This project has been created in order for me to experiment with APIs. This project in particular uses the Spotify web API to retrieve information on an artist entered by the user.
+It will now also display the input artist's popularity in a table as can be seen in ExampleTable.PNG
+
+## To do
+
+* I plan to enable the user to input more than one artist in order to create a comparison chart without the sample data.
 
 ## Spotify Web API
 

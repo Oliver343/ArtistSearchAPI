@@ -1,4 +1,7 @@
+import matplotlib.pyplot as plt
 import requests
+import numpy as np
+
 
 # Enter Spotify web API access token credentials below
 # If you don't have them you can get them here:
@@ -41,6 +44,30 @@ if raw_response.status_code == 200:
     # Prints artists name rating and a link to them on Spotify
     print("You have selected: {}  \nThis artist has a popularity of {}%".format(artist_info["artists"]["items"][0]["name"], artist_info["artists"]["items"][0]["popularity"]) )
     print(artist_info["artists"]["items"][0]["external_urls"]["spotify"])
+    # To see all json data uncomment the below...
+    # print(artist_info)
+
+    # Below draws a table showing the artist and popularity
+    fig, ax = plt.subplots()
+
+    # Gets data from converted json file about the artist and uses some sample data
+    # to make the results more interesting.
+    names = (artist_info["artists"]["items"][0]["name"], "The Beatles", "Metallica", "Dido")
+    y_pos = np.arange(len(names))
+    popularities = (artist_info["artists"]["items"][0]["popularity"], 88, 84, 75)
+
+    # Table titles and specifics listed below
+    ax.barh(y_pos, popularities, align='center')
+    ax.set_yticks(y_pos, labels=names)
+    ax.set_xlabel('Popularity %')
+    ax.set_xlim([0, 100])
+    ax.set_title('Artists Popularity')
+
+    # Displays table once the below is ran
+    plt.tight_layout()
+    plt.show()
+
+
 
 elif raw_response.status_code == 400:
         print("Unable to connect. This is most likely due to "
